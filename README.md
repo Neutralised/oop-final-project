@@ -26,7 +26,8 @@
 │   ├── solver.cpp    # 实现 Solver 类
 │   └── main.cpp      # 主循环
 └── tests
-    ├── test1.csv
+    ├── generate.bat  # 生成大规模数据的脚本
+    ├── test1.csv     # 小规模测试数据
     └── generator.cpp # 大规模数据生成器
 ```
 
