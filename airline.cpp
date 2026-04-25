@@ -97,7 +97,7 @@ void Airline::printTime(const system_clock::time_point& tp) {
 }
 void Airline::printInfo() {
 	// 打印以下信息：1.航班号 2.起点/终点 3.起飞/到达时间 4.飞行时长 5.余票
-	Log("INFO", "Flight Information");
+	Log("FLIGHT", "Flight Information");
 	std::cout << "- Flight ID: " << this->id() << '\n';
 	std::cout << "- Departure Station: " << this->start() << '\n';
 	std::cout << "- Terminal Station: " << this->terminal() << '\n';
