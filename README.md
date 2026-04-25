@@ -6,25 +6,93 @@
 
 项目报告见目录下的 report.pdf。
 
+## 项目结构
+
+```sh
+.
+├── README.md
+├── build.bat
+├── CMakeLists.txt
+├── docs
+│   ├── assets        # 报告内含图片目录
+│   ├── report.md     # 项目报告
+│   └── report.pdf    # 项目报告
+├── include
+│   ├── log.h         # 交互时输出日志
+│   ├── airline.h     # 定义 Airline 类
+│   └── solver.h      # 定义 Solver 类
+├── sources
+│   ├── airline.cpp   # 实现 Airline 类
+│   ├── solver.cpp    # 实现 Solver 类
+│   └── main.cpp      # 主循环
+└── tests
+    ├── test1.csv
+    └── generator.cpp # 大规模数据生成器
+```
+
 ## 使用
+
+### 项目依赖
+
+- CMake 3.10 或更高版本
+
+- MinGW-W64 编译器（包含 g++）
 
 ### 编译并运行
 
-在项目目录下：
+运行项目目录下的 `build.bat`，看到以下信息：
 
 ```bash
-g++ -o main -std=c++17 airline.cpp solver.cpp main.cpp
+=================================
+Flight Reservation System Builder
+=================================
+
+
+[1] Configuring CMake with MinGW...
+-- The CXX compiler identification is GNU 8.1.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: mingw64路径/bin/c++.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done (0.5s)
+-- Generating done (0.0s)
+-- Build files have been written to: 项目路径/build
+
+[2] Building project with MinGW...
+[ 16%] Building CXX object CMakeFiles/main.dir/sources/main.cpp.obj
+[ 33%] Building CXX object CMakeFiles/main.dir/sources/solver.cpp.obj
+[ 50%] Building CXX object CMakeFiles/main.dir/sources/airline.cpp.obj
+[ 66%] Linking CXX executable "项目路径\main.exe"
+[ 66%] Built target main
+[ 83%] Building CXX object CMakeFiles/generator.dir/tests/generator.cpp.obj
+[100%] Linking CXX executable "项目路径\tests\generator.exe"
+[100%] Built target generator
+
+=================================
+Build completed successfully!
+Executable: main.exe
+Test data generator: tests/generator.exe
+=================================
+
+请按任意键继续. . .
 ```
 
-随后启动 `main.exe`，
+说明项目编译成功。
+
+随后启动 `main.exe` 进行自定义测试：
 
 ```bash
 ./main
 ```
 
+在 `tests` 目录下，有一个已生成好的 CSV 文件 `test1.csv` 用于小规模测试。
+
+另外，可以运行该目录下的 `generate.bat`，以生成一份包含 10000 条航班信息的 `test2.csv` 文件，用于大规模测试。修改 `generator.cpp` 可以更改生成的航班信息数量。
+
 > [!NOTE]
 >
-> 由于 `solver.cpp` 中包含 structured bindings 等 C++17 特性，编译时如不加入 `-std=c++17` 会出现警告。
+> 由于 `solver.cpp` 中包含 structured bindings 等 C++17 特性，如不以 C++17 标准编译，会出现警告。标准可在 `CMakeList.txt` 中进行修改。
 
 ### 输入格式说明
 

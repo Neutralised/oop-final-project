@@ -65,7 +65,7 @@ int Airline::initial_ticket_count() const {
 	return ticket_count_;
 }
 
-const std::map<std::string, int>& Airline::reserved_users() const {
+const __gnu_pbds::gp_hash_table<std::string, int>& Airline::reserved_users() const {
 	return reserved_users_;
 }
 

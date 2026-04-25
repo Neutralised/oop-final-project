@@ -3,8 +3,6 @@
 
 #include "airline.h"
 #include <vector>
-#include <ext/pb_ds/assoc_container.hpp>
-#include <ext/pb_ds/hash_policy.hpp>
 
 class Solver {
 private:

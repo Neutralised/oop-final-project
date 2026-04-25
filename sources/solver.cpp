@@ -59,11 +59,11 @@ void Solver::addFlight() {
 		return;
 	}
 	std::cout << "- Departure Station: ";
-	std::cin >> start;
+	std::cin.ignore(), getline(std::cin, start);
 	std::cout << "- Terminal Station: ";
-	std::cin >> terminal;
+	getline(std::cin, terminal);
 	std::cout << "- Departure Time: ";
-	std::cin.ignore(), getline(std::cin, depart);
+	getline(std::cin, depart);
 	if(!checkTime(depart)) {
 		Log("ERROR", "Time format error");
 		return;
@@ -174,7 +174,7 @@ Airline& Solver::queryFlightInteract() {
 		}
 	} else if (op == "3") {
 		std::cout << "- Please input Terminal Station: ";
-		std::cin >> key;
+		std::cin.ignore(), getline(std::cin, key);
 	} else {
 		Log("ERROR", "Input format error: option not included");
 		return null_flight;
@@ -228,7 +228,7 @@ void Solver::reserveFlight(Airline& flight) {
 		return;
 	}
 	std::cout << "- Please input your user ID: ";
-	std::cin >> user_id;
+	std::cin.ignore(), getline(std::cin, user_id);
 	std::cout << "- Please input ticket amount: ";
 	std::cin >> count;
 	reserveTicket(user_id, count, flight);
@@ -243,7 +243,7 @@ void Solver::cancelFlight(Airline& flight) {
 		return;
 	}
 	std::cout << "- Please input your user ID: ";
-	std::cin >> user_id;
+	std::cin.ignore(), getline(std::cin, user_id);
 	std::cout << "- Please input ticket amount: ";
 	std::cin >> count;
 	cancelTicket(user_id, count, flight);
@@ -259,7 +259,7 @@ void Solver::reserveFlight() {
 		return;
 	}
 	std::cout << "- Please input your user ID: ";
-	std::cin >> user_id;
+	std::cin.ignore(), getline(std::cin, user_id);
 	std::cout << "- Please input ticket amount: ";
 	std::cin >> count;
 	reserveTicket(user_id, count, flight);
@@ -275,7 +275,7 @@ void Solver::cancelFlight() {
 		return;
 	}
 	std::cout << "- Please input your user ID: ";
-	std::cin >> user_id;
+	std::cin.ignore(), getline(std::cin, user_id);
 	std::cout << "- Please input ticket amount: ";
 	std::cin >> count;
 	cancelTicket(user_id, count, flight);
